@@ -87,7 +87,7 @@ try
     $newTarget.Uri = "poll://$tentacleIdentifier"
     $newTarget.Thumbprint = $tentacleThumbprint
 
-    # Create new machien resourece
+    # Create new machine resource
     $tentacle = New-Object Octopus.Client.Model.MachineResource
     $tentacle.Endpoint = $newTarget
     $tentacle.Name = $hostName
@@ -126,7 +126,7 @@ catch
 using Octopus.Client;
 using Octopus.Client.Model;
 
-// Declare working varibles
+// Declare working variables
 var octopusURL = "https://youroctourl";
 var octopusAPIKey = "API-YOURAPIKEY";
 string spaceName = "default";

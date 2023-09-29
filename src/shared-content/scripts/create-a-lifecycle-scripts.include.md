@@ -16,7 +16,7 @@ function Get-OctopusItems
     $skipQueryString = ""
     $headers = @{"X-Octopus-ApiKey"="$ApiKey"}
 
-    # Check to see if there there is already a querystring
+    # Check to see if there is already a querystring
     if ($octopusUri.Contains("?"))
     {
         $skipQueryString = "&skip="
@@ -28,7 +28,7 @@ function Get-OctopusItems
 
     $skipQueryString += $SkipCount
     
-    # Get intial set
+    # Get initial set
     $resultSet = Invoke-RestMethod -Uri "$($OctopusUri)$skipQueryString" -Method GET -Headers $headers
 
     # Check to see if it returned an item collection
@@ -126,7 +126,7 @@ $repositoryForSpace = $client.ForSpace($space)
 # Check to see if lifecycle already exists
 if ($null -eq $repositoryForSpace.Lifecycles.FindByName($lifecycleName))
 {
-    # Create new lifecyle
+    # Create new lifecycle
     $lifecycle = New-Object Octopus.Client.Model.LifecycleResource
     $lifecycle.Name = $lifecycleName
     $repositoryForSpace.Lifecycles.Create($lifecycle)

@@ -27,7 +27,7 @@ Octopus Deploy has several custom GitHub Actions available:
 All of the Actions are compatible with following runner types:
 
 - Windows
-- MacOS
+- macOS
 - Linux
 - Self-Hosted Runners
 
@@ -273,7 +273,7 @@ The variable **PACKAGE_VERSION** must be referenced like **${{ env.PACKAGE_VERSI
 :::
 
 ### Complete build example
-The previous sections displayed only the portions relavent to the topic being discussed.  The entire build YAML for the Octo Pet Shop is located below:
+The previous sections displayed only the portions relevant to the topic being discussed.  The entire build YAML for the Octo Pet Shop is located below:
 
 <details>
   <summary>Click here to view the entire example build YAML</summary>
@@ -420,7 +420,7 @@ Migrations guides can be found on each [GitHub Action Integration Repo](https://
 
 ### New GitHub Actions
 
-The following GitHub actions have been created in collaboration with Github Action v3.
+The following GitHub actions have been created in collaboration with GitHub Action v3.
 
 ### Deploy Release
 

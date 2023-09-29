@@ -418,7 +418,7 @@ Example: *Acme Corp*
 
 `Octopus.Deployment.Tenant.Tags`
 
-Comma delimited list of tags that belong the the Tenant being deployed for. If the deployment is untenanted (or pre 3.4.0) then this variable will not be present.
+Comma delimited list of tags that belong the Tenant being deployed for. If the deployment is untenanted (or pre 3.4.0) then this variable will not be present.
 
 Example: *Tenant type/External, Upgrade ring/Early adopter*
 
@@ -901,7 +901,7 @@ Example: *PowerShell*
 
 `Octopus.Action.SkipRemainingConventions`
 
-If set by the user, completes processing of the action without runnning further conventions/scripts *(Boolean)*. This should be set as an [output variable](/docs/projects/variables/output-variables). e.g. <br /> `Set-OctopusVariable -name 'Octopus.Action.SkipRemainingConventions' -value 'True'`
+If set by the user, completes processing of the action without running further conventions/scripts *(Boolean)*. This should be set as an [output variable](/docs/projects/variables/output-variables). e.g. <br /> `Set-OctopusVariable -name 'Octopus.Action.SkipRemainingConventions' -value 'True'`
 
 Example: *True*
 

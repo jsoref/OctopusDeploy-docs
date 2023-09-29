@@ -581,7 +581,7 @@ Console.WriteLine(string.Format("There are {0} cloud regions which are not count
 Console.WriteLine(string.Format("There are {0} disabled machines which are not counted", categorizedMachines.DisabledMachines.Count.ToString()));
 Console.WriteLine(string.Format("There are {0} duplicate listening Tentacles that are not counted (assuming you are using 2019.7.3+", categorizedMachines.DuplicateTentacles.Count.ToString()));
 Console.WriteLine(string.Empty);
-Console.WriteLine(string.Format("This leaves you with {0} active targets being counted against your licese (this process is excluding the {1} duplicates in that active count)", categorizedMachines.ActiveMachines.ToString(), categorizedMachines.DuplicateTentacles.Count.ToString()));
+Console.WriteLine(string.Format("This leaves you with {0} active targets being counted against your license (this process is excluding the {1} duplicates in that active count)", categorizedMachines.ActiveMachines.ToString(), categorizedMachines.DuplicateTentacles.Count.ToString()));
 Console.WriteLine(string.Format("Of that combined number, {0} are showing up as offline", categorizedMachines.OfflineMachines.Count.ToString()));
 Console.WriteLine(string.Format("Of that combined number, {0} have never had a deployment", categorizedMachines.UnusedMachines.Count.ToString()));
 Console.WriteLine(string.Format("Of that combined number, {0} haven't done a deployment in over {1} days", categorizedMachines.OldMachines.Count.ToString(), daysSinceLastDeployment));
@@ -833,7 +833,7 @@ func main() {
 	fmt.Printf("There are %[1]s disabled machines which are not counted \n", strconv.Itoa(len(categorizedMachines.DisabledMachines)))
 	fmt.Printf("There are %[1]s duplicate listening tentacles that are not counted (assuming you are using 2019.7.3+)\n", strconv.Itoa(len(categorizedMachines.DuplicateTenatcles)))
 	fmt.Println("")
-	fmt.Printf("This leaves you with %[1]s active targets being counted against your license (this process is excuding %[2]s duplicates in that active count) \n", strconv.Itoa(categorizedMachines.ActiveMachines), strconv.Itoa(len(categorizedMachines.DuplicateTenatcles)))
+	fmt.Printf("This leaves you with %[1]s active targets being counted against your license (this process is excluding %[2]s duplicates in that active count) \n", strconv.Itoa(categorizedMachines.ActiveMachines), strconv.Itoa(len(categorizedMachines.DuplicateTenatcles)))
 	fmt.Printf("Of that combined number, %[1]s are showing up as offline\n", strconv.Itoa(len(categorizedMachines.OfflineMachines)))
 	fmt.Printf("Of that combined number, %[1]s have never had a deployment\n", strconv.Itoa(len(categorizedMachines.UnusedMachines)))
 	fmt.Printf("Of that combined number, %[1]s have not done a deployment in over %[2]s days\n", strconv.Itoa(len(categorizedMachines.OldMachines)), strconv.Itoa(daysSinceLastDeployment))
@@ -994,7 +994,7 @@ func GetMachineTasks(octopusURL *url.URL, APIKey string, space *octopusdeploy.Sp
 		itemsPerPage := int(fltItemsPerPage)
 
 		if len(returnedTasks["Items"].([]interface{})) == itemsPerPage {
-			// Increment skip accoumt
+			// Increment skip account
 			skipAmount += len(returnedTasks["Items"].([]interface{}))
 
 			// Make request

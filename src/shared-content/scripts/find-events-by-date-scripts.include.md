@@ -22,7 +22,7 @@ function Get-OctopusItems
     $skipQueryString = ""
     $headers = @{"X-Octopus-ApiKey"="$ApiKey"}
 
-    # Check to see if there there is already a querystring
+    # Check to see if there is already a querystring
     if ($octopusUri.Contains("?"))
     {
         $skipQueryString = "&skip="
@@ -34,7 +34,7 @@ function Get-OctopusItems
 
     $skipQueryString += $SkipCount
     
-    # Get intial set
+    # Get initial set
     $resultSet = Invoke-RestMethod -Uri "$($OctopusUri)$skipQueryString" -Method GET -Headers $headers
 
     # Check to see if it returned an item collection
@@ -346,7 +346,7 @@ func GetEvents(octopusURL *url.URL, APIKey string, space *octopusdeploy.Space, e
 		itemsPerPage := int(fltItemsPerPage)
 
 		if len(returnedEvents["Items"].([]interface{})) == itemsPerPage {
-			// Increment skip accoumt
+			// Increment skip account
 			skipAmount += len(returnedEvents["Items"].([]interface{}))
 
 			// Make request

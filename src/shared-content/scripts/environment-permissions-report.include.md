@@ -1280,7 +1280,7 @@ static System.Collections.Generic.List<string> GetEnvironmentsScopedToProject (P
             {
                 if (!scopedEnvironments.Contains(environmentId))
                 {
-                    Console.WriteLine(string.Format("Adding {0} to {1} environemnt list", environmentId, Project.Name));
+                    Console.WriteLine(string.Format("Adding {0} to {1} environment list", environmentId, Project.Name));
                     scopedEnvironments.Add(environmentId);
                 }
             }
@@ -1523,7 +1523,7 @@ foreach (var spaceName in spaceList)
 
                     if ((scopedRole.ProjectIds.Count > 0) && (!scopedRole.ProjectIds.Contains(project.Id) && scopedRole.ProjectGroupIds.Count == 0))
                     {
-                        Console.WriteLine(string.Format("The scoped role is associates wiht projects, but not {0}, moving on to next role", project.Name));
+                        Console.WriteLine(string.Format("The scoped role is associates with projects, but not {0}, moving on to next role", project.Name));
                         continue;
                     }
 
@@ -1709,7 +1709,7 @@ def get_user_permission (space, project, user_role, project_permission_list, per
         return project_permission_list
 
     if len(existing_permission['Environments']) == 0 and len(existing_permission['Tenants']) == 0:
-        print ('{0} has no scoping for environments or tenants for this project, they have the highest level, no need to impove it.'.format(user['DisplayName']))
+        print ('{0} has no scoping for environments or tenants for this project, they have the highest level, no need to improve it.'.format(user['DisplayName']))
         return project_permission_list
 
     if len(existing_permission['Environments']) > 0 and len(new_permission['Environments']) == 0:

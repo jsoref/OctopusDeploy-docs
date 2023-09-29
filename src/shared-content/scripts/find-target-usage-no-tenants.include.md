@@ -436,7 +436,7 @@ function Get-EnvironmentsScopedToProject
             {
                 if ($scopedEnvironmentList -notcontains $environmentId)
                 {
-                    Write-Host "Adding $environmentId to $($project.Name) enviornment list"
+                    Write-Host "Adding $environmentId to $($project.Name) environment list"
                     $scopedEnvironmentList += $environmentId
                 }
             }
@@ -445,7 +445,7 @@ function Get-EnvironmentsScopedToProject
             {
                 if ($scopedEnvironmentList -notcontains $environmentId)
                 {
-                    Write-Host "Adding $environmentId to $($project.Name) enviornment list"
+                    Write-Host "Adding $environmentId to $($project.Name) environment list"
                     $scopedEnvironmentList += $environmentId
                 }
             }
@@ -495,7 +495,7 @@ function Get-TargetIsScopedToProcess
             $hasEnvironmentScoping = $action.Environments.Count -gt 0
             if ($hasEnvironmentScoping -eq $true)
             {
-                foreach ($environment in $action.Envrionments)
+                foreach ($environment in $action.Environments)
                 {
                     if ($target.EnvironmentIds -contains $environment)
                     {
@@ -583,9 +583,9 @@ foreach ($project in $projects)
     $targetHasMatchingEnvironment = $false
     
     # Loop through environments
-    foreach ($envronmentId in $projectEnvironments)
+    foreach ($environmentId in $projectEnvironments)
     {
-        if ($target.EnvironmentIds -contains $envronmentId)
+        if ($target.EnvironmentIds -contains $environmentId)
         {
             $targetHasMatchingEnvironment = $true
             break
@@ -822,7 +822,7 @@ foreach (var project in projects)
 
 if(targetResults.Count == 0)
 {
-    Console.WriteLine(string.Format("The target {0} is not associated with any projects or runboks", target.Name));
+    Console.WriteLine(string.Format("The target {0} is not associated with any projects or runbooks", target.Name));
 }
 else
 {
@@ -876,7 +876,7 @@ static System.Collections.Generic.List<string> GetEnvironmentsScopedToProject(Pr
             {
                 if (!scopedEnvironments.Contains(environmentId))
                 {
-                    Console.WriteLine(string.Format("Adding {0} to {1} environemnt list", environmentId, Project.Name));
+                    Console.WriteLine(string.Format("Adding {0} to {1} environment list", environmentId, Project.Name));
                     scopedEnvironments.Add(environmentId);
                 }
             }
@@ -946,11 +946,11 @@ static bool GetTargetIsScopedToProcess(Octopus.Client.Model.IProcessResource pro
                     if(hasExcludedEnvironmentScoping)
                     {
                         System.Collections.Generic.List<string> environmentsTargetCanStillDeployTo = new System.Collections.Generic.List<string>();
-                        foreach (var environmetnId in target.EnvironmentIds)
+                        foreach (var environmentId in target.EnvironmentIds)
                         {
-                            if ((!action.ExcludedEnvironments.Contains(environmetnId)) && (projectEnvironmentList.Contains(environmetnId)))
+                            if ((!action.ExcludedEnvironments.Contains(environmentId)) && (projectEnvironmentList.Contains(environmentId)))
                             {
-                                environmentsTargetCanStillDeployTo.Add(environmetnId);
+                                environmentsTargetCanStillDeployTo.Add(environmentId);
                             }
                         }
 
@@ -960,7 +960,7 @@ static bool GetTargetIsScopedToProcess(Octopus.Client.Model.IProcessResource pro
 
                 if (!hasEnvironmentScoping && !hasExcludedEnvironmentScoping)
                 {
-                    Console.WriteLine(string.Format("Target role matches the step and no step scopoing was configured, target is associated with process."));
+                    Console.WriteLine(string.Format("Target role matches the step and no step scoping was configured, target is associated with process."));
                     return true;
                 }
 
@@ -1092,7 +1092,7 @@ def get_target_is_scoped_to_process (process, target, project_environment_list):
                     all_environments_excluded = len(environments_target_can_still_deploy_to) == 0
 
             if has_environment_scoping == False and has_excluded_environment_scoping == False:
-                print("Target role matches the step and no step scoping was configurd, target is associated with process")
+                print("Target role matches the step and no step scoping was configured, target is associated with process")
                 return True
 
             if has_excluded_environment_scoping == True and all_environments_excluded == False:
@@ -1564,7 +1564,7 @@ func GetTargetIsScopedToDeploymentProcess(process *octopusdeploy.DeploymentProce
 				}
 
 				if hasExcludedEnvironmentScoping && !allEnvironmentsExcluded {
-					fmt.Printf("The step role matches, the target, and exclusion environments were found, but not all environments associated with the target were exucluded.  The target is associated with the process. \n")
+					fmt.Printf("The step role matches, the target, and exclusion environments were found, but not all environments associated with the target were excluded.  The target is associated with the process. \n")
 					return true
 				}
 			}
@@ -1632,7 +1632,7 @@ func GetTargetIsScopedToRunbookProcess(process *octopusdeploy.RunbookProcess, ta
 				}
 
 				if hasExcludedEnvironmentScoping && !allEnvironmentsExcluded {
-					fmt.Printf("The step role matches, the target, and exclusion environments were found, but not all environments associated with the target were exucluded.  The target is associated with the process. \n")
+					fmt.Printf("The step role matches, the target, and exclusion environments were found, but not all environments associated with the target were excluded.  The target is associated with the process. \n")
 					return true
 				}
 			}
